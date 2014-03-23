@@ -7,7 +7,7 @@ A Python library that scrapes fcc.gov to retrieve rulemaking information from th
 ```python
 from ecfs import FccProceeding
 
-proceeding = FccProceeding("14-28")
+proceeding = FccProceeding(docket_number="14-28")
 proceeding.get_comment_urls()
 """
 [

@@ -4,8 +4,6 @@ from urlparse import urlparse
 import re
 import time
 
-PROCEEDING = "14-28"
-
 def page_url_template(**kwargs):
     proceeding = kwargs.get("proceeding")
     page_number = kwargs.get("page_number")
@@ -64,7 +62,7 @@ class FccProceeding(object):
         results_page = requests.post(
             "http://apps.fcc.gov/ecfs/comment_search/execute",
             {
-                "proceeding": PROCEEDING,
+                "proceeding": self.docket_number,
                 "pageSize": "100"
             }
         )
@@ -82,7 +80,7 @@ class FccProceeding(object):
         print "That's approximately %s filings." % total_to_find
         page_numbers = range(1, last_page_number+1)
         for page_number in page_numbers:
-            page_url = page_url_template(proceeding=PROCEEDING, page_number=page_number)
+            page_url = page_url_template(proceeding=self.docket_number, page_number=page_number)
             urls = comment_urls_from_page_url(page_url, page_number=page_number)
             comment_urls.append(urls)
             just_found = len(urls.get('comment_urls'))

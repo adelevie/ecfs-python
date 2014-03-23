@@ -32,6 +32,7 @@ http://apps.fcc.gov/ecfs/comment/view?id=6017609065
 - package for pip
 - implement `get_comment_data_for_comment_url`. This would return information about the filing, such as date filed, name of filer, and an option to make an additional HTTP request to get the full text.
 - tests (maybe)
+- filter by date. This would allow you to scrape once, save the data (e.g. as json somewhere), then each day thereafter, incrementally retreive only new filings. You could then append the new filing data to the json file.
 
 ## How
 

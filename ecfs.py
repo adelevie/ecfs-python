@@ -88,6 +88,3 @@ class FccProceeding(object):
             percent = (float(total_found)/(total_to_find))*100
             print "%s/%s (%s %%)" % (total_found, total_to_find, percent)
         return comment_urls
-
-proceeding = FccProceeding(docket_number="14-28")
-comment_urls = proceeding.get_comment_urls()
